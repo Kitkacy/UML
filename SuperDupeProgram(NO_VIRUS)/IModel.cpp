@@ -4,10 +4,12 @@
 #include "Wniosek.h"
 #include "Spotkanie.h"
 #include "Dokument.h"
+#include "Fasada.h"
+#include <iostream>
 
 
 Obywatel IModel::getObywatel(int id) {
-	// TODO - implement IModel::getObywatel
+	// TODO - implement IModel::getObywatezl
 	throw "Not yet implemented";
 }
 
@@ -44,4 +46,30 @@ bool IModel::addDokument(Dokument dokument) {
 bool IModel::addWniosek(Wniosek wniosek) {
 	// TODO - implement IModel::addWniosek
 	throw "Not yet implemented";
+}
+
+Spotkanie IModel::umowWizyte(Obywatel danePetenta, int preferowanaData, std::string celWizyty) {
+	Fasada fasada;
+	return fasada.umowWizyte(danePetenta, preferowanaData, celWizyty);
+}
+
+void IModel::dodajDokument(int typ, std::string nazwa, std::string plikDokumentu) {
+    Fasada fasada;
+    fasada.createDokument(typ, nazwa, plikDokumentu);
+}
+
+void IModel::bladTerminu() {
+    std::cerr << "Błąd terminu!" << std::endl;
+}
+
+void IModel::bladZapisu() {
+    std::cerr << "Błąd zapisu!" << std::endl;
+}
+
+void IModel::bladDanych() {
+    std::cerr << "Błąd danych!" << std::endl;
+}
+
+void IModel::zwrocPotwierdzenieZapisu() {
+    std::cout << "Potwierdzenie zapisu dokumentu!" << std::endl;
 }

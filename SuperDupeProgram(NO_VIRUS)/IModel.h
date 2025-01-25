@@ -26,6 +26,15 @@ public:
 	bool addDokument(Dokument dokument);
 
 	bool addWniosek(Wniosek wniosek);
+
+	Spotkanie umowWizyte(Obywatel danePetenta, int preferowanaData, std::string celWizyty);
+
+	void bladTerminu();
+	void bladZapisu();
+	void bladDanych();
+	
+	void dodajDokument(int typ, std::string nazwa, std::string plikDokumentu);
+	void zwrocPotwierdzenieZapisu(); 
 };
 
 #endif

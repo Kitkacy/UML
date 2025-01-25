@@ -1,6 +1,8 @@
 #include "Spotkanie.h"
 #include "Obywatel.h"
 #include "Urzednik.h"
+#include "DataBaseAPI.h"
+#include "Fasada.h"
 
 Spotkanie::Spotkanie(int id, Obywatel petent, int czas, string cel, Urzednik urzednik)
 	: id(id), petent(petent), czas(czas), cel(cel), urzednik(urzednik) {
@@ -28,4 +30,15 @@ Urzednik Spotkanie::getUrzednik() {
 string Spotkanie::wygenerujINSERT() {
 	// TODO - implement Spotkanie::wygenerujINSERT
 	throw "Not yet implemented";
+}
+
+bool Spotkanie::zapiszSpotkanie() {
+    DataBaseAPI db;
+    if (!db.podejmijProbeZapisu(*this)) {
+        Fasada fasada;
+        fasada.wyslijPotwierdzenieSpotkania();
+        db.zaktualizujKalendarz(*this);
+        return false;
+    }
+    return true;
 }

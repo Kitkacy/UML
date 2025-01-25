@@ -26,6 +26,8 @@ public:
 	Urzednik getUrzednik();
 
 	std::string wygenerujINSERT();
+
+	bool zapiszSpotkanie();
 };
 
 #endif

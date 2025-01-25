@@ -12,9 +12,11 @@ private:
 	string adres;
 	char plec;
 	string PESEL;
+	bool poprawnoscCheck;
 
 public:
 	Obywatel(string name, string surname, int id, int phone, string email, string krajZamieszkania, string adres);
+    bool sprawdzDaneOsobowe();
 };
 
 #endif
